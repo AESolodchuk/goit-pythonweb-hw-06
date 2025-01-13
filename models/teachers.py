@@ -9,4 +9,6 @@ class Teacher(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String(50))
 
-    subjects = relationship("Subject", back_populates="teachers")
+    subjects: Mapped[list["Subject"]] = relationship(
+        "Subject", back_populates="teachers"
+    )
